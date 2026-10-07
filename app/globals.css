@@ -1,0 +1,59 @@
+/* Pretendard: sans-serif modern yang mendukung Latin + Hangul */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Primary: Deep Navy */
+  --color-navy: #1d2b4f;
+  --color-navy-deep: #141e38;
+  --color-navy-soft: #e7ebf3;
+
+  /* Secondary: Korean Red / Muted Coral */
+  --color-coral: #c8574b;
+  --color-coral-deep: #a94539;
+  --color-coral-soft: #f7e4e0;
+
+  /* Supporting */
+  --color-beige: #f3ece2;
+  --color-grey: #eef0f3;
+  --color-line: #e2e4e9;
+  --color-paper: #ffffff;
+
+  /* Teks: dark charcoal */
+  --color-ink: #20242b;
+  --color-ink-soft: #5a6170;
+
+  --shadow-soft: 0 1px 2px rgb(29 43 79 / 0.05), 0 12px 32px -12px rgb(29 43 79 / 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Hangul tidak dipotong di tengah kata */
+  [lang="ko"] {
+    word-break: keep-all;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-coral);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
